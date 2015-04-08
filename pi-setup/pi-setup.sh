@@ -88,7 +88,15 @@ PRESERVE $DHCPCONF
 FRESH $DHCPCONF
 cat <<EOF >> $DHCPCONF
 subnet 10.10.0.0 netmask 255.255.0.0 {
-  range 10.10.0.2 10.10.0.10
+  range 10.10.0.2 10.10.0.10;
 }
 EOF
+
+echo "Activate wlan0, hostapd, and isc-dhcp-server"
+ifdown wlan0
+ifup wlan0
+/etc/init.d/hostapd restart
+/etc/init.d/isc-dhcp-server restart
+
+ifconfig
 

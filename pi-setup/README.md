@@ -4,9 +4,15 @@
 **OS:** Start with NOOBS on 8GB SD card  
 **WiFi Adapter:** Belkin Model F7D2102  
 
+## Prerequisites
+* Raspberry Pi B+
+* Belkin Model F7D2102 USB Wifi adapter
+* Plugged in to wired ethernet and able to pick up an IP address via DHCP
+
+
 These directions are that maddening mix between assuming you know what you're doing and being too wordy.
 
-1. Plug Pi into wired MITnet (we'll use DHCP)
+1. Plug Pi into wired ethernet (we'll use MITnet and DHCP)
 1. Create a NOOBS install card
 1. Install NOOBS
 	1. Set Language: English (US)
@@ -26,9 +32,12 @@ These directions are that maddening mix between assuming you know what you're do
 		1. Advanced Options - enable SSH. Don't do anything else.
 1. After you're done with the configuration, stay at the shell prompt, don't go into the desktop. You should be able to get at the internet via the wired net. Either use **sudo** as shown in each command, or open a root shell via **sudo -s**   
   
-  ``sudo wget --no-check-certificates -O pi-setup.sh http://goo.gl/58aOPA``   
+  ``sudo wget --no-check-certificate -O pi-setup.sh http://goo.gl/58aOPA``   
   
   This will pull down the latest setup script from the github repo and save it. If you're paranoid, and there's no reason not to be, look at it before you run it.
+  
+  ``sudo bash ./pi-setup.sh``
+  
 
 
 
