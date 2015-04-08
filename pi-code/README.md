@@ -1,4 +1,4 @@
-OttoPieneRobotControls
-======================
+# Robotic Light Ballet
 
-Control System for the Otto Piene Light Ballet showing at MIT.
+
+Control System for the Robotic Light Ballet showing at MIT.
