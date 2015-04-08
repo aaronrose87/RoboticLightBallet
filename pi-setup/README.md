@@ -3,6 +3,13 @@
 ## Assumptions
 These directions are specific to the Robotic Light Ballet project in the [MIT Museum Studio](http://mitmuseumstudio.mit.edu). If you're coming here from "outside", note that not all the choices below will make sense for you. Fork this repo and edit for your own purposes.
 
+## Result
+These instructions result in the following:
+
+* The Pi sets up a WiFi access point, with SSID 'studiobot'. The password is 'lightballet'. 
+* There is no routing set up, if you need access to the external internet, you need to use the wired connection.
+* Devices that connect to the pi are given IP addresses in the range 10.10.0.1 to 10.10.0.10.
+
 ## Prerequisites
 * Raspberry Pi 2 (tested on Raspberry Pi 2 Model B v1.1)
 * NOOBS on 8GB SD card
@@ -35,11 +42,11 @@ These directions are that maddening mix between assuming you know what you're do
   
   ``sudo wget --no-check-certificate -O pi-setup.sh http://goo.gl/58aOPA``   
   
-  This will pull down the latest setup script from the github repo and save it. If you're paranoid, and there's no reason not to be, look at it before you run it.
+  This will pull down the latest setup script from the github repo and save it. (The goo.gl link resolves to https://raw.githubusercontent.com/mitmuseumstudio/RoboticLightBallet/master/pi-setup/pi-setup.sh) If you're paranoid, and there's no reason not to be, look at it before you run it.
   
   ``sudo bash ./pi-setup.sh``
   
-At this point the Pi is set
+At this point the Pi is set up to act as a WiFi access point.
 
 
 
