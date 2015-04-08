@@ -4,9 +4,7 @@
 **OS:** Start with NOOBS on 8GB SD card  
 **WiFi Adapter:** Belkin Model F7D2102  
 
-Note - these directions are that maddening mix between assuming you know what you're doing and being too wordy.
-
-Note - In the shell commands below, rather than including the 'sudo' part each time, just do ``sudo -s`` to open a root shell and not have to keep typing 'sudo'. Pretty much everything has to be done as root.
+These directions are that maddening mix between assuming you know what you're doing and being too wordy.
 
 1. Plug Pi into wired MITnet (we'll use DHCP)
 1. Create a NOOBS install card
@@ -26,20 +24,13 @@ Note - In the shell commands below, rather than including the 'sudo' part each t
 		1. Add to Rastrack - don't do this
 		1. Overclock - don't do this
 		1. Advanced Options - enable SSH. Don't do anything else.
-1. After you're done with the configuration, stay at the shell prompt, don't go into the desktop. You should be able to get at the internet via the wired net.
-1. Update the OS (as root) 
-``apt-get update && apt-get upgrade``
-1. Install the following packages  
-``apt-get install iw isc-dhcp-server hostapd apache2``
-Note that you'll see a message that says the ISC DHCP server failed to start. That's ok. We'll fix it later.
-1. Optionally install emacs (how can you live without it?!)  
-``apt-get install emacs``
-1. Grab the modified hostapd from Adafruit  
-``wget http://www.adafruit.com/downloads/adafruit_hostapd.zip``  
-``unzip adafruit_hostapd.zip``  
-``sudo mv /usr/sbin/hostapd /usr/sbin/hostapd.ORIG``  
-``sudo mv hostapd /usr/sbin``  
-``sudo chmod 755 /usr/sbin/hostapd``  
+1. After you're done with the configuration, stay at the shell prompt, don't go into the desktop. You should be able to get at the internet via the wired net. Either use **sudo** as shown in each command, or open a root shell via **sudo -s**   
+  
+  ``sudo wget --no-check-certificates -O pi-setup.sh http://goo.gl/58aOPA``   
+  
+  This will pull down the latest setup script from the github repo and save it. If you're paranoid, and there's no reason not to be, look at it before you run it.
+
+
 
 
 Credits  

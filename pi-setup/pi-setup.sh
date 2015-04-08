@@ -1,41 +1,51 @@
-!#/bin/bash
+#!/bin/bash
 
 # If there's not already a preserved file ending in .orig
 # make one by renaming.
-function PRESERVE() {
+PRESERVE() {
     if [[ ! -f ${1}.orig ]] ; then
+        echo "Preserving ${1} to ${1}.orig"
         mv ${1} ${1}.orig
+    else
+        echo "Already preserved: ${1}.orig"
     fi
 }
 
 # If there's a preserved file, make a fresh copy of it
 # in its original place
-function FRESH() {
+FRESH() {
     if [[ -f ${1}.orig ]] ; then
+        echo "Making fresh copy of ${1}.orig to ${1}"
         cp ${1}.orig ${1}
     fi
 }
 
 # Bring the OS up to date
-apt-get update
-apt-get upgrade
+echo "Updating packages"
+apt-get -y update
+echo "Upgrading packages"
+apt-get -y upgrade
 
 # install needed packages
-apt-get install iw isc-dhcp-server hostapd apache2
-apt-get install emacs
+echo "Installing packages"
+apt-get -y install iw isc-dhcp-server hostapd apache2
+apt-get -y install emacs
 
 # get a custom hostapd that can deal with the Belkin WiFi
+echo "Getting Adafruit hostapd"
 wget http://www.adafruit.com/downloads/adafruit_hostapd.zip
 unzip adafruit_hostapd.zip
 
-PRESERVE /usr/sgin/hostapd
-
-mv hostapd /usr/sbin
-chmod 755 /usr/sbin/hostapd
+HOSTAPD=/usr/sbin/hostapd
+PRESERVE $HOSTAPD
+mv hostapd $HOSTAPD
+chmod 755 $HOSTAPD
 
 # Set up the config files
-PRESERVE /etc/network/interfaces
-cat <<EOF > /etc/network/interfaces
+INTERFACES=/etc/network/interfaces
+echo "Setting up $INTERFACES"
+PRESERVE $INTERFACES
+cat <<EOF > $INTERFACES
 auto lo
 iface lo inet loopback
 iface eth0 inet dhcp
@@ -45,8 +55,10 @@ address 10.10.0.1
 netmask 255.255.0.0
 EOF
 
-PRESERVE /etc/hostapd/hostapd.conf
-cat <<EOF > /etc/hostapd/hostapd.conf
+HOSTAPDCONF=/etc/hostapd/hostapd.conf
+echo "Setting up $HOSTAPDCONF"
+PRESERVE $HOSTAPDCONF
+cat <<EOF > $HOSTAPDCONF
 interface=wlan0
 driver=rtl871xdrv
 ssid=studiobot
@@ -62,15 +74,19 @@ wpa_pairwise=TKIP
 rsn_pairwise=CCMP
 EOF
 
-PRESERVE /etc/default/hostapd
-FRESH /etc/default/hostapd
-cat <<EOF >> /etc/default/hostapd
-DAEMON_CONF= "/etc/hostapd/hostapd.conf"
+HOSTAPDDEFAULT=/etc/default/hostapd
+echo "Setting up $HOSTAPDDEFAULT"
+PRESERVE $HOSTAPDDEFAULT
+FRESH $HOSTAPDDEFAULT
+cat <<EOF >> $HOSTAPDDEFAULT
+DAEMON_CONF= "$HOSTAPDCONF"
 EOF
 
-PRESERVE /etc/dhcp/dhcpd.conf
-FRESH /etc/dhcp/dhcpd.conf
-cat <<EOF >> /etc/dhcp/dhcpd.conf
+DHCPCONF=/etc/dhcp/dhcpd.conf
+echo "Setting up $DHCPCONF"
+PRESERVE $DHCPCONF
+FRESH $DHCPCONF
+cat <<EOF >> $DHCPCONF
 subnet 10.10.0.0 netmask 255.255.0.0 {
   range 10.10.0.2 10.10.0.10
 }
