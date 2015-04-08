@@ -1,20 +1,21 @@
 # How to set up the Raspberry Pi
 
-**Pi:** Rasberry Pi B+  
-**OS:** Start with NOOBS on 8GB SD card  
-**WiFi Adapter:** Belkin Model F7D2102  
+## Assumptions
+These directions are specific to the Robotic Light Ballet project in the [MIT Museum Studio](http://mitmuseumstudio.mit.edu). If you're coming here from "outside", note that not all the choices below will make sense for you. Fork this repo and edit for your own purposes.
 
 ## Prerequisites
-* Raspberry Pi B+
+* Raspberry Pi 2 (tested on Raspberry Pi 2 Model B v1.1)
+* NOOBS on 8GB SD card
 * Belkin Model F7D2102 USB Wifi adapter
 * Plugged in to wired ethernet and able to pick up an IP address via DHCP
 
+## Directions
 
 These directions are that maddening mix between assuming you know what you're doing and being too wordy.
 
 1. Plug Pi into wired ethernet (we'll use MITnet and DHCP)
 1. Create a NOOBS install card
-1. Install NOOBS
+1. Install NOOBS and configure it. This list is the full customization, but you can get away with a bare minimum. That would be to just set up keyboard to US, password, and turn on ssh.
 	1. Set Language: English (US)
 	1. Set keyboard: US
 	1. Install Raspbian
@@ -38,7 +39,7 @@ These directions are that maddening mix between assuming you know what you're do
   
   ``sudo bash ./pi-setup.sh``
   
-
+At this point the Pi is set
 
 
 
