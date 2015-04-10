@@ -8,6 +8,8 @@ wget --no-check-certificate -O pi-setup-common.sh https://raw.githubusercontent.
 
 . ./pi-setup-common.sh
 
+apt-get -y install iw isc-dhcp-server hostapd
+
 # get a custom hostapd that can deal with the Belkin WiFi
 echo "Getting Adafruit hostapd"
 wget http://www.adafruit.com/downloads/adafruit_hostapd.zip

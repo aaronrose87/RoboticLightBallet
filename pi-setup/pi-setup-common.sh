@@ -28,6 +28,6 @@ apt-get -y upgrade
 
 # install needed packages
 echo "Installing packages"
-apt-get -y install iw isc-dhcp-server hostapd apache2
-apt-get -y install emacs
+apt-get -y install apache2 emacs
+
 
