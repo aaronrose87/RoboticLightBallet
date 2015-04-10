@@ -11,7 +11,8 @@ These instructions result in the following:
 * Devices that connect to the pi are given IP addresses in the range 10.10.0.1 to 10.10.0.10.
 
 ## Prerequisites
-* Raspberry Pi 2 (tested on Raspberry Pi 2 Model B v1.1)
+* Raspberry Pi 2 (tested on Raspberry Pi 2 Model B v1.1)  
+Also works on a Pi B+
 * NOOBS on 8GB SD card
 * Belkin Model F7D2102 USB Wifi adapter
 * Plugged in to wired ethernet and able to pick up an IP address via DHCP
