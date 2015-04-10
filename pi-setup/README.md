@@ -49,6 +49,17 @@ These directions are that maddening mix between assuming you know what you're do
   
 At this point the Pi is set up to act as a WiFi access point.
 
+# Interim new instructions
+Everything above will still work. However, so that we can have one platform be the wireless access point and have the others be clients on the same network the setup has to be split into two scripts. So now we have
+
+* Primary (i.e. the access point)  
+https://raw.githubusercontent.com/mitmuseumstudio/RoboticLightBallet/master/pi-setup/pi-setup-primary.sh or http://goo.gl/deteb6
+
+* Secondary (i.e. the clients)   
+https://raw.githubusercontent.com/mitmuseumstudio/RoboticLightBallet/master/pi-setup/pi-setup-secondary.sh or http://goo.gl/vmr5jV
+
+# End of interim new instructions
+
 
 
 Credits  
