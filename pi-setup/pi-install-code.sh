@@ -11,7 +11,9 @@ git clone https://github.com/mitmuseumstudio/RoboticLightBallet.git
 RCLOCAL=/etc/rc.local
 PRESERVE $RCLOCAL
 
-sed '/exit 0/i \/home/pi/RoboticLightBallet/pi-code/robotControl.py' \
+RUNNER=/home/pi/RoboticLightBallet/pi-setup/pi-run-code.sh
+chmod +x $RUNNER
+sed "/exit 0/i \ $RUNNER' \
     < $RCLOCAL > /home/pi/rc.local.new
 
 mv /home/pi/rc.local.new $RCLOCAL
