@@ -2,6 +2,9 @@ from flask import Flask, render_template, request
 import math, os, time, serial, time
 import RPi.GPIO as GPIO
 
+# figure out where this file lives
+here = os.path.dirname(os.path.realpath(__file__))
+
 # initialize serial port
 port = serial.Serial("/dev/ttyAMA0", baudrate=19200, timeout=3.0)
 
@@ -9,7 +12,7 @@ port = serial.Serial("/dev/ttyAMA0", baudrate=19200, timeout=3.0)
 #time.sleep(2)
 
 ### FLASK CONFIGURATION ###
-tmpl_dir = '/home/pi/Desktop/OttoPieneRobotControls/'
+tmpl_dir = here
 app = Flask(__name__, template_folder=tmpl_dir, static_url_path='/static')
 app.config['SECRET_KEY'] = 'lightballet'
 app.config['DEBUG'] = True
