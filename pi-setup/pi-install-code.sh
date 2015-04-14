@@ -10,6 +10,7 @@ git clone https://github.com/mitmuseumstudio/RoboticLightBallet.git
 
 RCLOCAL=/etc/rc.local
 PRESERVE $RCLOCAL
+FRESH $RCLOCAL
 
 RUNNER=/home/pi/RoboticLightBallet/pi-setup/pi-run-code.sh
 chmod +x $RUNNER
