@@ -2,7 +2,7 @@
 
 # Assumes the pi has been set up and the code has been installed.
 
-sleep 60
+sleep 10
 
 while true; do
     cd ~pi/RoboticLightBallet/pi-code
