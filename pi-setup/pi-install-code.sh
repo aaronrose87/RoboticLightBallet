@@ -18,6 +18,8 @@ sed "/exit 0/i \ $RUNNER &" \
     < $RCLOCAL > /home/pi/rc.local.new 
 
 mv /home/pi/rc.local.new $RCLOCAL
+chmod o+x $RCLOCAL
+
 
 
 
