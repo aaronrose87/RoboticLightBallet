@@ -14,7 +14,7 @@ FRESH $RCLOCAL
 
 RUNNER=/home/pi/RoboticLightBallet/pi-setup/pi-run-code.sh
 chmod +x $RUNNER
-sed "/exit 0/i \ $RUNNER' \
+sed "/exit 0/i \ $RUNNER" \
     < $RCLOCAL > /home/pi/rc.local.new
 
 mv /home/pi/rc.local.new $RCLOCAL
