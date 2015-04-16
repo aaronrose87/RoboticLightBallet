@@ -6,16 +6,25 @@ These directions are specific to the Robotic Light Ballet project in the [MIT Mu
 ## Result
 These instructions result in the following:
 
-* The Pi sets up a WiFi access point, with SSID 'studiobot'. The password is 'lightballet'. 
-* There is no routing set up, if you need access to the external internet, you need to use the wired connection.
-* Devices that connect to the pi are given IP addresses in the range 10.10.0.1 to 10.10.0.10.
+* One Pi as a control computer (aka the Control Pi)
+	* It can have a display and keyboard
+	* It can be connected to a wired network for remote access.
+	* It sets up a WiFi access point with SSID 'studiobot' and password 'lightballet'
+	* It provides DHCP service
+	* There is no bridge or router from the wired to wireless. If you want to talk to a client, you ssh in to this Pi and then ssh from there to the others.
+
+* One or more Pi's set up to be on the studiobot network (aka the Robot Pi's)
+	* They pick up IP addresses from the access point.
+	* They can be on a wired network for development and debugging
+
+* Devices that connect to the control Pi are given IP addresses in the range 10.10.0.1 to 10.10.0.10.
 
 ## Prerequisites
 * Raspberry Pi 2 (tested on Raspberry Pi 2 Model B v1.1)  
 Also works on a Pi B+
 * NOOBS on 8GB SD card
 * Belkin Model F7D2102 USB Wifi adapter
-* Plugged in to wired ethernet and able to pick up an IP address via DHCP
+* For installation: Plugged in to wired ethernet and able to pick up an IP address via DHCP
 
 ## Directions
 
@@ -40,27 +49,35 @@ These directions are that maddening mix between assuming you know what you're do
 		1. Overclock - don't do this
 		1. Advanced Options - enable SSH. Don't do anything else.
 1. After you're done with the configuration, stay at the shell prompt, don't go into the desktop. You should be able to get at the internet via the wired net. Either use **sudo** as shown in each command, or open a root shell via **sudo -s**   
-  
-  ``sudo wget --no-check-certificate -O pi-setup.sh http://goo.gl/58aOPA``   
-  
-  This will pull down the latest setup script from the github repo and save it. (The goo.gl link resolves to https://raw.githubusercontent.com/mitmuseumstudio/RoboticLightBallet/master/pi-setup/pi-setup.sh) If you're paranoid, and there's no reason not to be, look at it before you run it.
-  
-  ``sudo bash ./pi-setup.sh``
-  
-At this point the Pi is set up to act as a WiFi access point.
+ 
+# Setup for Control Pi
 
-# Interim new instructions
-Everything above will still work. However, so that we can have one platform be the wireless access point and have the others be clients on the same network the setup has to be split into two scripts. So now we have
+Remember to be root.
 
-* Primary (i.e. the access point)  
-https://raw.githubusercontent.com/mitmuseumstudio/RoboticLightBallet/master/pi-setup/pi-setup-primary.sh or http://goo.gl/deteb6
+``wget --no-check-certificate -O pi-setup-primary.sh http://goo.gl/deteb6``
 
-* Secondary (i.e. the clients)   
-https://raw.githubusercontent.com/mitmuseumstudio/RoboticLightBallet/master/pi-setup/pi-setup-secondary.sh or http://goo.gl/vmr5jV
+The goo.gl link picks up https://raw.githubusercontent.com/mitmuseumstudio/RoboticLightBallet/master/pi-setup/pi-setup-primary.sh
 
-# End of interim new instructions
+``bash ./pi-setup-primary.sh``
+
+If you want to see what's going on, use ``bash -x``
+
+When this script is done, the Pi is up and running as an access point. Actual control code is not loaded at this point.
+
+# Setup for Robot Pi
+
+Remember to be root.
+
+``wget --no-check-certificate -O pi-setup-secondary.sh http://goo.gl/vmr5jV``
+
+The goo.gl link picks up https://raw.githubusercontent.com/mitmuseumstudio/RoboticLightBallet/master/pi-setup/pi-setup-secondary.sh
+
+``bash ./pi-setup-secondary.sh``
+
+If you want to see what's going on, use ``bash -x``
+
+When this script is done, the Pi is up and running as a client. Access control code is not loaded at this point.
 
 
-
-Credits  
+# Credits  
 https://decryption.wordpress.com/2014/05/24/a-very-simple-way-to-use-a-raspberry-pi-as-a-wireless-access-point-not-a-router-with-an-rtl8192cu-based-wi-fi-chipset/
