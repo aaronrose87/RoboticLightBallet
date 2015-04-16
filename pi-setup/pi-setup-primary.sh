@@ -4,7 +4,7 @@
 # This should be run on the Pi that will control the primary platform
 
 # Pull down and source the common functions
-wget --no-check-certificate -O pi-setup-common.sh https://raw.githubusercontent.com/mitmuseumstudio/RoboticLightBallet/master/pi-setup/pi-setup-functions.sh
+wget --no-check-certificate -O pi-setup-functions.sh https://raw.githubusercontent.com/mitmuseumstudio/RoboticLightBallet/master/pi-setup/pi-setup-functions.sh
 
 wget --no-check-certificate -O pi-setup-common.sh https://raw.githubusercontent.com/mitmuseumstudio/RoboticLightBallet/master/pi-setup/pi-setup-common.sh
 
