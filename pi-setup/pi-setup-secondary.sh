@@ -23,5 +23,13 @@ auth_alg=OPEN
 }
 EOF
 
+ifdown wlan0
+echo "Waiting 10 seconds"
+sleep 10
+echo "Activating wlan0"
+ifup wlan0
+echo "Waiting 5 seconds"
+sleep 5
+
 ifconfig
 
