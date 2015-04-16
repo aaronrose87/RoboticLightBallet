@@ -1,5 +1,7 @@
 #!/bin/bash
 
+wget --no-check-certificate -O pi-setup-functions.sh https://raw.githubusercontent.com/mitmuseumstudio/RoboticLightBallet/master/pi-setup/pi-setup-functions.sh
+
 . ./pi-setup-functions.sh
 
 # Bring the OS up to date
