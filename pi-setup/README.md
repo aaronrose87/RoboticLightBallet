@@ -54,11 +54,11 @@ These directions are that maddening mix between assuming you know what you're do
 
 Remember to be root.
 
-``wget --no-check-certificate -O pi-setup-primary.sh http://goo.gl/deteb6``
+``wget --no-check-certificate -O pi-setup-controller.sh http://goo.gl/z9Gw1J``
 
-The goo.gl link picks up https://raw.githubusercontent.com/mitmuseumstudio/RoboticLightBallet/master/pi-setup/pi-setup-primary.sh
+The goo.gl link picks up https://raw.githubusercontent.com/mitmuseumstudio/RoboticLightBallet/master/pi-setup/pi-setup-controller.sh
 
-``bash ./pi-setup-primary.sh``
+``bash ./pi-setup-controller.sh``
 
 If you want to see what's going on, use ``bash -x``
 
@@ -68,11 +68,11 @@ When this script is done, the Pi is up and running as an access point. Actual co
 
 Remember to be root.
 
-``wget --no-check-certificate -O pi-setup-secondary.sh http://goo.gl/vmr5jV``
+``wget --no-check-certificate -O pi-setup-robot.sh http://goo.gl/xxpjpz``
 
-The goo.gl link picks up https://raw.githubusercontent.com/mitmuseumstudio/RoboticLightBallet/master/pi-setup/pi-setup-secondary.sh
+The goo.gl link picks up https://raw.githubusercontent.com/mitmuseumstudio/RoboticLightBallet/master/pi-setup/pi-setup-robot.sh
 
-``bash ./pi-setup-secondary.sh``
+``bash ./pi-setup-robot.sh``
 
 If you want to see what's going on, use ``bash -x``
 
