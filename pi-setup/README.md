@@ -78,6 +78,8 @@ If you want to see what's going on, use ``bash -x``
 
 When this script is done, the Pi is up and running as a client. Access control code is not loaded at this point.
 
+#Warnings
+* If the controller Pi is plugged into a wired network that happens to be an internal network behind a router, and is given a wired IP address in the 10.10.0.x range, things could behave badly.
 
 # Credits  
 https://decryption.wordpress.com/2014/05/24/a-very-simple-way-to-use-a-raspberry-pi-as-a-wireless-access-point-not-a-router-with-an-rtl8192cu-based-wi-fi-chipset/
