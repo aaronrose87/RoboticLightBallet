@@ -23,13 +23,9 @@ auth_alg=OPEN
 }
 EOF
 
-ifdown wlan0
-echo "Waiting 10 seconds"
-sleep 10
-echo "Activating wlan0"
-ifup wlan0
-echo "Waiting 5 seconds"
-sleep 5
+# Pull down the wifi joining script and run it.
+wget --no-check-certificate -O pi-setup-common.sh https://raw.githubusercontent.com/mitmuseumstudio/RoboticLightBallet/master/pi-setup/pi-robot-join-wifi.sh
 
-ifconfig
+# This will run until the Pi sees and has joined the network.
+./pi-robot-join-wifi.sh
 
