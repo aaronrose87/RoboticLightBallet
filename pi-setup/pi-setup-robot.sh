@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Sets up a Raspberry Pi for the Robotic Light Ballet project.
-# This should be run on the Pi(s) that will connect to the primary.
+# This should be run on the Pi(s) that will be in the robots.
 
 
 # Pull down and source the common functions

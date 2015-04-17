@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# Sets up a Raspberry Pi for the Robotic Light Ballet project.
-# This should be run on the Pi that will control the primary platform
+# Sets up a Raspberry Pi as the Controller for the Robotic Light Ballet project.
+# This should be run on the Pi that will act as the controller
+# for the robots.
 
 # Pull down and source the common functions
 wget --no-check-certificate -O pi-setup-common.sh https://raw.githubusercontent.com/mitmuseumstudio/RoboticLightBallet/master/pi-setup/pi-setup-common.sh
