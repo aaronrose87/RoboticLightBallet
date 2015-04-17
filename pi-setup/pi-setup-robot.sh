@@ -24,7 +24,7 @@ auth_alg=OPEN
 EOF
 
 # Pull down the wifi joining script and run it.
-wget --no-check-certificate -O pi-setup-common.sh https://raw.githubusercontent.com/mitmuseumstudio/RoboticLightBallet/master/pi-setup/pi-robot-join-wifi.sh
+wget --no-check-certificate -O pi-robot-join-wifi.sh https://raw.githubusercontent.com/mitmuseumstudio/RoboticLightBallet/master/pi-setup/pi-robot-join-wifi.sh
 
 # This will run until the Pi sees and has joined the network.
 ./pi-robot-join-wifi.sh
