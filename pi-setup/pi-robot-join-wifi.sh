@@ -31,7 +31,8 @@ WIFI_JOIN() {
 
 WIFI_JOIN
 
-if [[ $LOOP ]] ; then
-    WIFI_JOIN
+while [[ $LOOP ]] ; do
     sleep $LOOP
-fi
+    WIFI_JOIN
+done
+
