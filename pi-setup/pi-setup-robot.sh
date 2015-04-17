@@ -31,3 +31,9 @@ chmod +x ./pi-robot-join-wifi.sh
 # This will run until the Pi sees and has joined the network.
 ./pi-robot-join-wifi.sh
 
+
+cat <<EOF > pi-robot-crontab
+* * * * * /home/pi/pi-robot-join-wifi.sh
+EOF
+crontab pi-robot-crontab
+
