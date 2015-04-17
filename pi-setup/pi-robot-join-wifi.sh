@@ -8,6 +8,7 @@
 # that many seconds between loops.
 
 LOOP=${1:-""}
+if [[ $LOOP ]]; then VERBOSE=""; else VERBOSE=true; fi
 
 _IP=$(hostname -I) || true
 
@@ -15,18 +16,22 @@ SSID=$(sed -n -e '/ssid/s/"//g' -e '/ssid/s/ssid=//' \
            < /etc/wpa_supplicant/wpa_supplicant.conf)
 
 
+ECHOP() {
+    if [[ $VERBOSE ]]; then echo $*; fi
+}
+
 WIFI_JOIN() {
-    echo -n "Connecting to $SSID wifi network"
+    ECHOP -n "Connecting to $SSID wifi network"
 
     while [[ ! ("$_IP" == *10.10.*) ]]; do
-        echo -n "."
+        ECHOP -n "."
         ifdown wlan0 2>&1 | logger
         sleep 2
         ifup wlan0 2>&1 | logger
         sleep 2
         _IP=$(hostname -I) || true
     done
-    echo ". IP address: $_IP"
+    ECHOP ". IP address: $_IP"
 }
 
 WIFI_JOIN
