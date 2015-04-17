@@ -32,8 +32,3 @@ chmod +x ./pi-robot-join-wifi.sh
 ./pi-robot-join-wifi.sh
 
 
-cat <<EOF > pi-robot-crontab
-* * * * * /home/pi/pi-robot-join-wifi.sh
-EOF
-crontab pi-robot-crontab
-
